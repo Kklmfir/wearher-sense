@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WeatherNav</title>
+<link rel="stylesheet" href="frontend/src/styles/style.css" />
+<script src="backend/src/routes/wheater.js" defer></script>
+<script src="backend/src/routes/location.js" defer></script>
+<script src="backend/src/routes/traffic.js" defer></script>
+<script src="backend/src/routes/chatbot.js" defer></script>
+</head>
+
+<body>
+<header>
+  <h1>WeatherNav</h1>
+  <p>Cuaca, Lalu Lintas & Rute perjalanan otomatis sesuai lokasi kamu.</p>
+</header>
+
+<div id="weather-section"></div>
+<div id="map"></div>
+
+<div class="chatbot-container">
+  <div id="chatbox"></div>
+  <input id="userInput" placeholder="Tanyakan cuaca, rute, saran perjalanan..." />
+</div>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY&callback=initMap"
+  async defer>
+</script>
+</body>
+</html>

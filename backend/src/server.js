@@ -1,16 +1,24 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import weatherRouter from './routes/weather.js';
-import webhook from './routes/webhook.js';
+import express from "express";
+import fetch from "node-fetch";
+import dotenv from "dotenv";
+import cors from "cors";
 
+dotenv.config();
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.static("public"));
 
-app.use('/api/weather', weatherRouter);
-app.use('/api/webhook', webhook);
+app.get("/weather", async (req, res) => {
+  const { lat, lon } = req.query;
+  try {
+    const response = await fetch(`https://api.bmkg.go.id/pelayanan-data-cuaca?lat=${lat}&lon=${lon}`);
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Gagal mengambil data BMKG" });
+  }
+});
 
-app.get('/', (req,res) => res.send('WeatherSense backend ok'));
-const port = process.env.PORT || 4000;
-app.listen(port, ()=> console.log(`Server listening ${port}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server berjalan di port", PORT));

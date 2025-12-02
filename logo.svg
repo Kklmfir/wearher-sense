@@ -1,0 +1,19 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gsense" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF87"/>
+      <stop offset="100%" stop-color="#0061FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Radar rings -->
+  <circle cx="90" cy="75" r="60" stroke="url(#gsense)" stroke-width="4" fill="none" opacity="0.5"/>
+  <circle cx="90" cy="75" r="45" stroke="url(#gsense)" stroke-width="4" fill="none" opacity="0.7"/>
+  <circle cx="90" cy="75" r="30" stroke="url(#gsense)" stroke-width="4" fill="none"/>
+
+  <!-- Cloud -->
+  <path d="M60 85 a25 25 0 0 1 50 0 h-50z" fill="white" stroke="white" stroke-width="2"/>
+
+  <!-- GPS pin -->
+  <path d="M90 105 L80 135 L100 135 Z" fill="url(#gsense)" />
+</svg>
